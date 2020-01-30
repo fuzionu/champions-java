@@ -3,6 +3,7 @@ public class Champion
     String name;
     String role;
     int health;
+    int healthRegen;
     String resourceType;
     int resourceRegen;
     int abilityPower;
