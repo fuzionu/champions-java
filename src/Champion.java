@@ -7,8 +7,8 @@ public class Champion
     int resourceRegen;
     int abilityPower;
     String attackType;
-    String attackDamage;
-    float attackSpeed;
+    int attackDamage;
+    double attackSpeed;
     int attackRange;
     int armor;
     int magicResist;
