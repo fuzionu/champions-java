@@ -1,36 +1,12 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Champions
+public class Champions extends Champion
 {
-    static Set<Champion> championsSet = new HashSet<>();
-
-    public static Champion createChampion(String name, String role, int health, int healthRegen, String resourceType,
-    int resourceRegen, int abilityPower, String attackType, int attackDamage, double attackSpeed, int attackRange,
-    int armor, int magicResist, int movementSpeed)
-    {
-        Champion champion = new Champion();
-
-        champion.name = name;
-        champion.role = role;
-        champion.health = health;
-        champion.healthRegen = healthRegen;
-        champion.resourceType = resourceType;
-        champion.resourceRegen = resourceRegen;
-        champion.abilityPower = abilityPower;
-        champion.attackType = attackType;
-        champion.attackDamage = attackDamage;
-        champion.attackSpeed = attackSpeed;
-        champion.attackRange = attackRange;
-        champion.armor = armor;
-        champion.magicResist = magicResist;
-        champion.movementSpeed = movementSpeed;
-
-        return champion;
-    }
-
     public static Set<Champion> getAllChampions()
     {
+        Set<Champion> championsSet = new HashSet<>();
+
         championsSet.add(createChampion("Aatrox", "Warrior", 3881, 59, "None", 0, 0, "Melee", 558, 1.40, 325, 178, 141, 415));
         championsSet.add(createChampion("Ahri", "Assasin", 2316, 30,"Mana", 30, 803, "Ranged", 120, 0.78, 500, 120, 100, 488));
         championsSet.add(createChampion("Akali", "Assassin", 2301, 45, "Energy", 10, 336, "Melee", 211,  1.15, 350, 100, 100, 395));
