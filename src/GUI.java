@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class GUI
 {
-    public static void GraphicUserInterface()
+    public void GraphicUserInterface()
     {
         JFrame championsFrame = new JFrame("Champions");
         JLabel ButtonsLabel = new JLabel();
