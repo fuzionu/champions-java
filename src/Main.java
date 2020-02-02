@@ -24,7 +24,7 @@ public class Main
                 System.out.println(Champions.showChampion(champion));
                 System.out.println();
             }
-            catch (RuntimeException e)
+            catch (ChampionNotFoundException e)
             {
                 System.out.println("Champion not found! Try again.");
             }

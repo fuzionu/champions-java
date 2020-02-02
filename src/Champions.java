@@ -41,7 +41,7 @@ public class Champions
                 return championFromSet;
             }
         }
-        throw new RuntimeException();
+        throw new ChampionNotFoundException();
     }
 
     public static String showChampion(Champion champion)
