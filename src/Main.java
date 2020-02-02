@@ -13,15 +13,26 @@ public class Main
             System.out.print("Enter champ name: ");
             String champName = scanner.nextLine();
 
+            Champion champion = Champions.getChampion(champName);
+
             if (champName.equals("exit"))
             {
                 doContinue = false;
+                System.out.println("Closing program...");
             }
             else
             {
-                System.out.println(Champions.showChampion(Champions.getChampion(champName)));
+                if (champion == null)
+                {
+                    System.out.println("Champion not found! Try again.");
+                }
+                else
+                {
+                    System.out.println(Champions.showChampion(champion));
+                }
             }
 
+            System.out.println();
 
         } while (doContinue);
 
