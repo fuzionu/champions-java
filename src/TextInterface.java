@@ -2,24 +2,6 @@ import java.util.Scanner;
 
 public class TextInterface
 {
-    private String showChampion(Champion champion)
-    {
-        return  "Name: "           + champion.name          + "\n" +
-                "Role: "           + champion.role          + "\n" +
-                "Health: "         + champion.health        + "\n" +
-                "Health regen: "   + champion.healthRegen   + "/s\n" +
-                "Resource type: "  + champion.resourceType  + "\n" +
-                "Resource regen: " + champion.resourceRegen + "/s\n" +
-                "Ability power: "  + champion.abilityPower  + "\n" +
-                "Attack type: "    + champion.attackType    + "\n" +
-                "Attack damage: "  + champion.attackDamage  + "\n" +
-                "Attack speed: "   + champion.attackSpeed   + "\n" +
-                "Attack range: "   + champion.attackRange   + "\n" +
-                "Armor: "          + champion.armor         + "\n" +
-                "Magic resist: "   + champion.magicResist   + "\n" +
-                "Movement speed: "  + champion.movementSpeed;
-    }
-
     public void start()
     {
         Scanner scanner = new Scanner(System.in);
@@ -34,23 +16,9 @@ public class TextInterface
                 break;
             }
 
-            showChampion(userInput);
+            showChampionInfo(userInput);
 
         } while (true);
-    }
-
-    private void showChampion(String userInput)
-    {
-        try
-        {
-            Champion champion = ChampionRepository.getChampion(userInput);
-            System.out.println(showChampion(champion));
-            System.out.println();
-        }
-        catch (ChampionNotFoundException e)
-        {
-            System.out.println("Champion not found! Try again.");
-        }
     }
 
     private String userInput(Scanner scanner)
@@ -60,4 +28,35 @@ public class TextInterface
         return scanner.nextLine();
     }
 
+    private void showChampionInfo(String userInput)
+    {
+        try
+        {
+            Champion champion = ChampionRepository.getChampion(userInput);
+            System.out.println(showChampionInfo(champion));
+            System.out.println();
+        }
+        catch (ChampionNotFoundException e)
+        {
+            System.out.println("Champion not found! Try again.");
+        }
+    }
+
+    private String showChampionInfo(Champion champion)
+    {
+        return "Name: " + champion.name + "\n" +
+                "Role: " + champion.role + "\n" +
+                "Health: " + champion.health + "\n" +
+                "Health regen: " + champion.healthRegen + "/s\n" +
+                "Resource type: " + champion.resourceType + "\n" +
+                "Resource regen: " + champion.resourceRegen + "/s\n" +
+                "Ability power: " + champion.abilityPower + "\n" +
+                "Attack type: " + champion.attackType + "\n" +
+                "Attack damage: " + champion.attackDamage + "\n" +
+                "Attack speed: " + champion.attackSpeed + "\n" +
+                "Attack range: " + champion.attackRange + "\n" +
+                "Armor: " + champion.armor + "\n" +
+                "Magic resist: " + champion.magicResist + "\n" +
+                "Movement speed: " + champion.movementSpeed;
+    }
 }

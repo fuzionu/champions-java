@@ -3,6 +3,20 @@ import java.util.Set;
 
 public class ChampionRepository
 {
+    public static Champion getChampion(String championName)
+    {
+        Set<Champion> arrayOfChampions = getAllChampions();
+
+        for (Champion championFromSet : arrayOfChampions)
+        {
+            if (championFromSet.name.equalsIgnoreCase(championName.trim()))
+            {
+                return championFromSet;
+            }
+        }
+        throw new ChampionNotFoundException();
+    }
+
     private static Set<Champion> getAllChampions()
     {
         Set<Champion> championsSet = new HashSet<>();
@@ -28,19 +42,5 @@ public class ChampionRepository
         championsSet.add(new Champion("Vladimir", "Mage", 4000, 83, "Health", 83, 991, "Ranged", 115, 0.91, 400, 123, 101, 413));
 
         return championsSet;
-    }
-
-    public static Champion getChampion(String championName)
-    {
-        Set<Champion> arrayOfChampions = getAllChampions();
-
-        for (Champion championFromSet : arrayOfChampions)
-        {
-            if (championFromSet.name.equalsIgnoreCase(championName.trim()))
-            {
-                return championFromSet;
-            }
-        }
-        throw new ChampionNotFoundException();
     }
 }
