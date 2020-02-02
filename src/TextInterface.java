@@ -23,7 +23,6 @@ public class TextInterface
     public void start()
     {
         Scanner scanner = new Scanner(System.in);
-        TextInterface textInterface = new TextInterface();
 
         do
         {
@@ -35,17 +34,17 @@ public class TextInterface
                 break;
             }
 
-            showChampion(textInterface, userInput);
+            showChampion(userInput);
 
         } while (true);
     }
 
-    private void showChampion(TextInterface textInterface, String userInput)
+    private void showChampion(String userInput)
     {
         try
         {
             Champion champion = ChampionRepository.getChampion(userInput);
-            System.out.println(textInterface.showChampion(champion));
+            System.out.println(showChampion(champion));
             System.out.println();
         }
         catch (ChampionNotFoundException e)
