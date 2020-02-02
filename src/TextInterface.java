@@ -27,9 +27,7 @@ public class TextInterface
 
         do
         {
-            System.out.println("Type champion's name or \"exit\" to close the program");
-            System.out.print(">");
-            String userInput = scanner.nextLine();
+            String userInput = userInput(scanner);
 
             if (userInput.equals("exit"))
             {
@@ -37,18 +35,30 @@ public class TextInterface
                 break;
             }
 
-            try
-            {
-                Champion champion = ChampionRepository.getChampion(userInput);
-                System.out.println(textInterface.showChampion(champion));
-                System.out.println();
-            }
-            catch (ChampionNotFoundException e)
-            {
-                System.out.println("Champion not found! Try again.");
-            }
+            showChampion(textInterface, userInput);
 
         } while (true);
+    }
+
+    private void showChampion(TextInterface textInterface, String userInput)
+    {
+        try
+        {
+            Champion champion = ChampionRepository.getChampion(userInput);
+            System.out.println(textInterface.showChampion(champion));
+            System.out.println();
+        }
+        catch (ChampionNotFoundException e)
+        {
+            System.out.println("Champion not found! Try again.");
+        }
+    }
+
+    private String userInput(Scanner scanner)
+    {
+        System.out.println("Type champion's name or \"exit\" to close the program");
+        System.out.print(">");
+        return scanner.nextLine();
     }
 
 }
