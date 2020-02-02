@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GUI
+public class WindowInterface
 {
     public void GraphicUserInterface()
     {

@@ -6,6 +6,8 @@ public class Main
     {
         Scanner scanner = new Scanner(System.in);
 
+        TextInterface textInterface = new TextInterface();
+
         do
         {
             System.out.println("Type champion's name or \"exit\" to close the program");
@@ -20,8 +22,8 @@ public class Main
 
             try
             {
-                Champion champion = Champions.getChampion(userInput);
-                System.out.println(Champions.showChampion(champion));
+                Champion champion = ChampionRepository.getChampion(userInput);
+                System.out.println(textInterface.showChampion(champion));
                 System.out.println();
             }
             catch (ChampionNotFoundException e)
