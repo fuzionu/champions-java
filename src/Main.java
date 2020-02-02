@@ -5,36 +5,31 @@ public class Main
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-        boolean doContinue = true;
 
         do
         {
-            System.out.println("Type \"exit\" to close the program.");
-            System.out.print("Enter champ name: ");
-            String champName = scanner.nextLine();
+            System.out.println("Type champion's name or \"exit\" to close the program");
+            System.out.print(">");
+            String userInput = scanner.nextLine();
 
-            Champion champion = Champions.getChampion(champName);
-
-            if (champName.equals("exit"))
+            if (userInput.equals("exit"))
             {
-                doContinue = false;
                 System.out.println("Closing program...");
+                break;
             }
-            else
+
+            try
             {
-                if (champion == null)
-                {
-                    System.out.println("Champion not found! Try again.");
-                }
-                else
-                {
-                    System.out.println(Champions.showChampion(champion));
-                }
+                Champion champion = Champions.getChampion(userInput);
+                System.out.println(Champions.showChampion(champion));
+                System.out.println();
+            }
+            catch (RuntimeException e)
+            {
+                System.out.println("Champion not found! Try again.");
             }
 
-            System.out.println();
-
-        } while (doContinue);
+        } while (true);
 
     }
 }
