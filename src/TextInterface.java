@@ -16,7 +16,7 @@ public class TextInterface
                 break;
             }
 
-            showChampionInfo(userInput);
+            showChampion(userInput);
 
         } while (true);
     }
@@ -28,12 +28,12 @@ public class TextInterface
         return scanner.nextLine();
     }
 
-    private void showChampionInfo(String userInput)
+    private void showChampion(String userInput)
     {
         try
         {
             Champion champion = ChampionRepository.getChampion(userInput);
-            System.out.println(showChampionInfo(champion));
+            System.out.println(showChampionStats(champion));
             System.out.println();
         }
         catch (ChampionNotFoundException e)
@@ -42,7 +42,7 @@ public class TextInterface
         }
     }
 
-    private String showChampionInfo(Champion champion)
+    private String showChampionStats(Champion champion)
     {
         return "Name: " + champion.name + "\n" +
                 "Role: " + champion.role + "\n" +
