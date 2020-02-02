@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class ChampionRepository
 {
-    public static Set<Champion> getAllChampions()
+    private static Set<Champion> getAllChampions()
     {
         Set<Champion> championsSet = new HashSet<>();
 

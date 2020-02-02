@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class TextInterface
 {
-    public String showChampion(Champion champion)
+    private String showChampion(Champion champion)
     {
         return  "Name: "           + champion.name          + "\n" +
                 "Role: "           + champion.role          + "\n" +
