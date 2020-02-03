@@ -1,19 +1,19 @@
 public class Champion
 {
-    String name;
-    String role;
-    int health;
-    int healthRegen;
-    String resourceType;
-    int resourceRegen;
-    int abilityPower;
-    String attackType;
-    int attackDamage;
-    double attackSpeed;
-    int attackRange;
-    int armor;
-    int magicResist;
-    int movementSpeed;
+    final String name;
+    final String role;
+    final int health;
+    final int healthRegen;
+    final String resourceType;
+    final int resourceRegen;
+    final int abilityPower;
+    final String attackType;
+    final int attackDamage;
+    final double attackSpeed;
+    final int attackRange;
+    final int armor;
+    final int magicResist;
+    final int movementSpeed;
 
     public Champion(String name, String role, int health, int healthRegen, String resourceType, int resourceRegen,
                     int abilityPower, String attackType, int attackDamage, double attackSpeed, int attackRange,
