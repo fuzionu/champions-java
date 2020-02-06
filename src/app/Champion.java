@@ -9,7 +9,7 @@ public class Champion
     final String resourceType;
     final int resourceRegen;
     final int abilityPower;
-    final String attackType;
+    final AttackType attackType;
     final int attackDamage;
     final double attackSpeed;
     final int attackRange;
@@ -18,7 +18,7 @@ public class Champion
     final int movementSpeed;
 
     public Champion(String name, Role role, int health, int healthRegen, String resourceType, int resourceRegen,
-                    int abilityPower, String attackType, int attackDamage, double attackSpeed, int attackRange,
+                    int abilityPower, AttackType attackType, int attackDamage, double attackSpeed, int attackRange,
                     int armor, int magicResist, int movementSpeed)
     {
         this.name = name;
