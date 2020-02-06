@@ -3,7 +3,7 @@ package app;
 public class Champion
 {
     final String name;
-    final String role;
+    final Role role;
     final int health;
     final int healthRegen;
     final String resourceType;
@@ -17,7 +17,7 @@ public class Champion
     final int magicResist;
     final int movementSpeed;
 
-    public Champion(String name, String role, int health, int healthRegen, String resourceType, int resourceRegen,
+    public Champion(String name, Role role, int health, int healthRegen, String resourceType, int resourceRegen,
                     int abilityPower, String attackType, int attackDamage, double attackSpeed, int attackRange,
                     int armor, int magicResist, int movementSpeed)
     {

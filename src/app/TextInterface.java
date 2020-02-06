@@ -47,7 +47,7 @@ public class TextInterface
     private String showChampionStats(Champion champion)
     {
         return "Name: " + champion.name + "\n" +
-                "Role: " + champion.role + "\n" +
+                "Role: " + champion.role.getType() + "\n" +
                 "Health: " + champion.health + "\n" +
                 "Health regen: " + champion.healthRegen + "/s\n" +
                 "Resource type: " + champion.resourceType + "\n" +
