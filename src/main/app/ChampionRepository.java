@@ -14,13 +14,13 @@ import static app.AttackType.MELEE;
 import static app.AttackType.RANGED;
 import static app.AttackType.TRANSFORM;
 
-import static app.ResourceType.MANA;
-import static app.ResourceType.ENERGY;
-import static app.ResourceType.RAGE;
-import static app.ResourceType.FEROCITY;
-import static app.ResourceType.COURAGE;
-import static app.ResourceType.HEALTH;
-import static app.ResourceType.NONE;
+import static app.Resource.MANA;
+import static app.Resource.ENERGY;
+import static app.Resource.RAGE;
+import static app.Resource.FEROCITY;
+import static app.Resource.COURAGE;
+import static app.Resource.HEALTH;
+import static app.Resource.NONE;
 
 
 public class ChampionRepository
@@ -43,7 +43,7 @@ public class ChampionRepository
     {
         Set<Champion> championsSet = new HashSet<>();
         championsSet.add(new Champion("Aatrox", FIGHTER, 3881, 59, NONE, 0, 0, MELEE, 558, 1.40, 325, 178, 141, 415));
-        championsSet.add(new Champion("Ahri", ASSASSIN, 2316, 30, MANA, 30, 803, RANGED, 120, 0.78, 500, 120, 100, 488));
+        championsSet.add(new Champion("Ahri",ASSASSIN,2316, 30, MANA, 43, 811, RANGED, 101, 0.85, 500, 120, 100, 493));
         championsSet.add(new Champion("Akali", ASSASSIN, 2301, 45, ENERGY, 10, 336, MELEE, 211,  1.15, 350, 100, 100, 395));
         championsSet.add(new Champion("Alistar", TANK, 5353, 125, MANA, 17, 21, MELEE, 107, 0.63, 325, 303, 286, 440));
         championsSet.add(new Champion("Amumu", TANK, 4333, 57, MANA, 17, 0, MELEE, 99, 0.70, 325, 332, 301, 400));

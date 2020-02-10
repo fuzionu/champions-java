@@ -63,12 +63,12 @@ public class TextInterface
 
     private String getResources(Champion champion)
     {
-        if(champion.resourceRegenValue == 0)
+        if(champion.resourceRegen == 0)
         {
-            return "Resource type: " + champion.resourceType.typeOfResource() + "\n";
+            return "Resource type: " + champion.resource.typeOfResource() + "\n";
         }
 
-        return "Resource type: " + champion.resourceType.typeOfResource() + "\n" +
-               "Resource regen: " + champion.resourceRegenValue + champion.resourceType.regenWayOfResource() + "\n";
+        return "Resource type: " + champion.resource.typeOfResource() + "\n" +
+               "Resource regen: " + champion.resourceRegen + champion.resource.regenOfResource() + "\n";
     }
 }

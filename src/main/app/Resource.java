@@ -1,6 +1,6 @@
 package app;
 
-public enum ResourceType
+public enum Resource
 {
     MANA("Mana", " per second"),
     ENERGY("Energy", " per second"),
@@ -13,7 +13,7 @@ public enum ResourceType
     public final String resourceType;
     public final String resourceRegenWay;
 
-    ResourceType(String resourceType, String resourceRegenWay)
+    Resource(String resourceType, String resourceRegenWay)
     {
         this.resourceType = resourceType;
         this.resourceRegenWay = resourceRegenWay;
@@ -24,7 +24,7 @@ public enum ResourceType
         return resourceType;
     }
 
-    public String regenWayOfResource()
+    public String regenOfResource()
     {
         return resourceRegenWay;
     }
