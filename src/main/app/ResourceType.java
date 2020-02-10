@@ -9,28 +9,30 @@ public class ResourceType
             return "Resource type: " + champion.resourceType + "\n" +
                     "Resource regen: " + champion.resourceRegen + "/s" + "\n";
         }
-        else if (champion.resourceType.equals("Rage"))
+
+        if (champion.resourceType.equals("Rage"))
         {
             return "Resource type: " + champion.resourceType + "\n" +
                     "Resource gain: " + champion.resourceRegen + "/attack or damage" + "\n";
         }
-        else if (champion.resourceType.equals("Ferocity"))
+
+        if (champion.resourceType.equals("Ferocity"))
         {
             return "Resource type: " + champion.resourceType + "\n" +
                     "Resource gain: " + champion.resourceRegen + "/ability" + "\n";
         }
-        else if (champion.resourceType.equals("Courage"))
+
+        if (champion.resourceType.equals("Courage"))
         {
             return "Resource type: " + champion.resourceType + "\n" +
                     "Resource gain: " + champion.resourceRegen + "/attack" + "\n";
         }
-        else if (champion.resourceType.equals("Health"))
+
+        if (champion.resourceType.equals("Health"))
         {
             return "Resource type: Health" + "\n";
         }
-        else
-        {
-            return "Resource type: None" + "\n";
-        }
+
+        return "Resource type: None" + "\n";
     }
 }
