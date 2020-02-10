@@ -1,38 +1,31 @@
 package app;
 
-public class ResourceType
+public enum ResourceType
 {
-    public String resourceType(Champion champion)
+    MANA("Mana", " per second"),
+    ENERGY("Energy", " per second"),
+    RAGE("Rage", " per attack or damage"),
+    FEROCITY("Ferocity", " per ability"),
+    COURAGE("Courage", " per attack"),
+    HEALTH("Health", " per second"),
+    NONE("None", "");
+
+    public final String resourceType;
+    public final String resourceRegenWay;
+
+    ResourceType(String resourceType, String resourceRegenWay)
     {
-        if (champion.resourceType.equals("Mana") || champion.resourceType.equals("Energy"))
-        {
-            return "Resource type: " + champion.resourceType + "\n" +
-                    "Resource regen: " + champion.resourceRegen + "/s" + "\n";
-        }
+        this.resourceType = resourceType;
+        this.resourceRegenWay = resourceRegenWay;
+    }
 
-        if (champion.resourceType.equals("Rage"))
-        {
-            return "Resource type: " + champion.resourceType + "\n" +
-                    "Resource gain: " + champion.resourceRegen + "/attack or damage" + "\n";
-        }
+    public String typeOfResource()
+    {
+        return resourceType;
+    }
 
-        if (champion.resourceType.equals("Ferocity"))
-        {
-            return "Resource type: " + champion.resourceType + "\n" +
-                    "Resource gain: " + champion.resourceRegen + "/ability" + "\n";
-        }
-
-        if (champion.resourceType.equals("Courage"))
-        {
-            return "Resource type: " + champion.resourceType + "\n" +
-                    "Resource gain: " + champion.resourceRegen + "/attack" + "\n";
-        }
-
-        if (champion.resourceType.equals("Health"))
-        {
-            return "Resource type: Health" + "\n";
-        }
-
-        return "Resource type: None" + "\n";
+    public String regenWayOfResource()
+    {
+        return resourceRegenWay;
     }
 }
