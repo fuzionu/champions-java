@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class TextInterface
 {
-    ResourceType resourceType = new ResourceType();
-
     public void start()
     {
         Scanner scanner = new Scanner(System.in);
@@ -52,7 +50,7 @@ public class TextInterface
                 "Role: " + champion.role + "\n" +
                 "Health: " + champion.health + "\n" +
                 "Health regen: " + champion.healthRegen + "/s\n" +
-                resourceType.resourceType(champion) +
+                getResources(champion) +
                 "Ability power: " + champion.abilityPower + "\n" +
                 "Attack type: " + champion.attackType + "\n" +
                 "Attack damage: " + champion.attackDamage + "\n" +
@@ -61,5 +59,16 @@ public class TextInterface
                 "Armor: " + champion.armor + "\n" +
                 "Magic resist: " + champion.magicResist + "\n" +
                 "Movement speed: " + champion.movementSpeed;
+    }
+
+    private String getResources(Champion champion)
+    {
+        if(champion.resourceRegenValue == 0)
+        {
+            return "Resource type: " + champion.resourceType.typeOfResource() + "\n";
+        }
+
+        return "Resource type: " + champion.resourceType.typeOfResource() + "\n" +
+               "Resource regen: " + champion.resourceRegenValue + champion.resourceType.regenWayOfResource() + "\n";
     }
 }
