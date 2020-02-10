@@ -6,8 +6,8 @@ public class Champion
     final Role role;
     final int health;
     final int healthRegen;
-    final String resourceType;
-    final int resourceRegen;
+    final ResourceType resourceType;
+    final int resourceRegenValue;
     final int abilityPower;
     final AttackType attackType;
     final int attackDamage;
@@ -17,16 +17,16 @@ public class Champion
     final int magicResist;
     final int movementSpeed;
 
-    public Champion(String name, Role role, int health, int healthRegen, String resourceType, int resourceRegen,
-                    int abilityPower, AttackType attackType, int attackDamage, double attackSpeed, int attackRange,
-                    int armor, int magicResist, int movementSpeed)
+    public Champion(String name, Role role, int health, int healthRegen, ResourceType resourceType,
+                    int resourceRegenValue, int abilityPower, AttackType attackType, int attackDamage, double attackSpeed,
+                    int attackRange, int armor, int magicResist, int movementSpeed)
     {
         this.name = name;
         this.role = role;
         this.health = health;
         this.healthRegen = healthRegen;
         this.resourceType = resourceType;
-        this.resourceRegen = resourceRegen;
+        this.resourceRegenValue = resourceRegenValue;
         this.abilityPower = abilityPower;
         this.attackType = attackType;
         this.attackDamage = attackDamage;
