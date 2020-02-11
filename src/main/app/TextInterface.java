@@ -19,7 +19,6 @@ public class TextInterface
             }
 
             showChampion(userInput);
-
         } while (true);
     }
 
@@ -50,7 +49,7 @@ public class TextInterface
                 "Role: " + champion.role + "\n" +
                 "Health: " + champion.health + "\n" +
                 "Health regen: " + champion.healthRegen + "/s\n" +
-                getResources(champion) +
+                formatResource(champion) +
                 "Ability power: " + champion.abilityPower + "\n" +
                 "Attack type: " + champion.attackType + "\n" +
                 "Attack damage: " + champion.attackDamage + "\n" +
@@ -61,7 +60,7 @@ public class TextInterface
                 "Movement speed: " + champion.movementSpeed;
     }
 
-    private String getResources(Champion champion)
+    private String formatResource(Champion champion)
     {
         if (champion.resourceRegen == 0)
         {
