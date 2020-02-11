@@ -7,10 +7,10 @@ public class TextInterface
     private final ChampionRepository championRepository;
     private final Scanner scanner;
 
-    TextInterface()
+    TextInterface(ChampionRepository championRepository, Scanner scanner)
     {
-        championRepository = new ChampionRepository();
-        scanner = new Scanner(System.in);
+        this.championRepository = championRepository;
+        this.scanner = scanner;
     }
 
     public void start()
