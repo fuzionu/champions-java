@@ -8,7 +8,7 @@ public enum Resource
     FEROCITY("Ferocity", " per ability"),
     COURAGE("Courage", " per attack"),
     HEALTH("Health", " per second"),
-    NONE("None", "");
+    NONE("None", null);
 
     public final String resourceType;
     public final String resourceRegenWay;
