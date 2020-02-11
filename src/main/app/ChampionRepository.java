@@ -23,7 +23,7 @@ import static java.util.Arrays.asList;
 
 public class ChampionRepository
 {
-    public static Champion getChampion(String championName)
+    public Champion getChampion(String championName)
     {
         Set<Champion> arrayOfChampions = getAllChampions();
 
@@ -37,7 +37,7 @@ public class ChampionRepository
         throw new ChampionNotFoundException();
     }
 
-    private static Set<Champion> getAllChampions()
+    private Set<Champion> getAllChampions()
     {
         return new HashSet<>(asList(
                 new Champion("Aatrox", FIGHTER, 3881, 59, NONE, 0, 0, MELEE, 558, 1.40, 325, 178, 141, 415),

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class TextInterface
 {
+    ChampionRepository championRepository = new ChampionRepository();
+
     public void start()
     {
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +35,7 @@ public class TextInterface
     {
         try
         {
-            Champion champion = ChampionRepository.getChampion(userInput);
+            Champion champion = championRepository.getChampion(userInput);
             System.out.println(showChampionStats(champion));
             System.out.println();
         }
