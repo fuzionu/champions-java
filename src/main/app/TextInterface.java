@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class TextInterface
 {
-    ChampionRepository championRepository = new ChampionRepository();
+    private final ChampionRepository championRepository;
+    private final Scanner scanner;
+
+    TextInterface()
+    {
+        championRepository = new ChampionRepository();
+        scanner = new Scanner(System.in);
+    }
 
     public void start()
     {
-        Scanner scanner = new Scanner(System.in);
-
         do
         {
             String userInput = userInput(scanner);
