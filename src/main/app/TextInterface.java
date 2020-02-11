@@ -66,10 +66,10 @@ public class TextInterface
     {
         if (champion.resourceRegen == 0)
         {
-            return "Resource type: " + champion.resource.typeOfResource() + "\n";
+            return "Resource type: " + champion.resource.type + "\n";
         }
 
-        return "Resource type: " + champion.resource.typeOfResource() + "\n" +
-                "Resource regen: " + champion.resourceRegen + champion.resource.regenOfResource() + "\n";
+        return "Resource type: " + champion.resource.type + "\n" +
+                "Resource regen: " + champion.resourceRegen + champion.resource.regen + "\n";
     }
 }

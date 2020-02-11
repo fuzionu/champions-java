@@ -10,22 +10,13 @@ public enum Resource
     HEALTH("Health", " per second"),
     NONE("None", null);
 
-    public final String resourceType;
-    public final String resourceRegenWay;
+    public final String type;
+    public final String regen;
 
-    Resource(String resourceType, String resourceRegenWay)
+    Resource(String type, String regen)
     {
-        this.resourceType = resourceType;
-        this.resourceRegenWay = resourceRegenWay;
+        this.type = type;
+        this.regen = regen;
     }
 
-    public String typeOfResource()
-    {
-        return resourceType;
-    }
-
-    public String regenOfResource()
-    {
-        return resourceRegenWay;
-    }
 }
