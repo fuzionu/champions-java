@@ -16,7 +16,7 @@ class ItemRepositoryTest
         // when
         Set<Item> items = repository.getItems();
         // then
-        assertEquals(1, items.size());
+        assertEquals(2, items.size());
     }
 
     @Test
@@ -37,7 +37,7 @@ class ItemRepositoryTest
         // given
         ItemRepository repository = new ItemRepository();
         // when
-        Item item = repository.getBotRK();
+        Item item = repository.getBotRK(repository.getRecurveBow(repository.getDagger()), repository.getBilgewaterCutlass(repository.getVampiricScepter(repository.getLongSword()), repository.getLongSword()));
         // then
         assertEquals("Blade of the Ruined King", item.name);
         assertEquals(3600, item.price);

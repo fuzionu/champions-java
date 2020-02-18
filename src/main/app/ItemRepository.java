@@ -1,10 +1,12 @@
 package app;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.*;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 
 public class ItemRepository
 {
@@ -21,8 +23,9 @@ public class ItemRepository
     public Set<Item> getItems()
     {
         Item item = getRabadon(getNeedlesslyLargeRod());
+        Item item2 = getBotRK(getRecurveBow(getDagger()), getBilgewaterCutlass(getVampiricScepter(getLongSword()), getLongSword()));
 
-        return singleton(item);
+        return new HashSet<>(asList(item, item2));
     }
 
     public Item getRabadon(Item subpart)
@@ -30,10 +33,10 @@ public class ItemRepository
         return item("Rabadon's Deathcap", 3600, "rabadon.png", asList(subpart, subpart));
     }
 
-    public Item getBotRK()
+    public Item getBotRK(Item recurveBow, Item bilgewaterCutlass)
     {
         return item("Blade of the Ruined King", 3600, "botrk.png",
-                asList(getRecurveBow(getDagger()), getBilgewaterCutlass(getVampiricScepter(getLongSword()), getLongSword())));
+                asList(recurveBow, bilgewaterCutlass));
     }
 
     public Item getLongSword()
