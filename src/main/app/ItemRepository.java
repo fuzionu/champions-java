@@ -10,12 +10,12 @@ public class ItemRepository
 {
     private Item item(String name, int price, String image, List<Item> subParts)
     {
-        Item needlesslyLargeRod = new Item();
-        needlesslyLargeRod.name = name;
-        needlesslyLargeRod.price = price;
-        needlesslyLargeRod.image = image;
-        needlesslyLargeRod.subParts = subParts;
-        return needlesslyLargeRod;
+        Item item = new Item();
+        item.name = name;
+        item.price = price;
+        item.image = image;
+        item.subParts = subParts;
+        return item;
     }
 
     public Set<Item> getItems()
