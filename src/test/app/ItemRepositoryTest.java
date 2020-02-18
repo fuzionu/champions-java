@@ -58,11 +58,13 @@ class ItemRepositoryTest
     @Test
     void shouldGetNeedlesslyLargeRod()
     {
-        // given
-
+        //given
+        ItemRepository repository = new ItemRepository();
         // when
-
+        Item item = repository.getNeedlesslyLargeRod();
         // then
+        assertEquals("Needlessly Large Rod", item.name);
+        assertEquals(1250, item.price);
 
     }
 
@@ -70,45 +72,47 @@ class ItemRepositoryTest
     void shouldGetDagger()
     {
         // given
-
+        ItemRepository repository = new ItemRepository();
         // when
-
+        Item item = repository.getDagger();
         // then
-
+        assertEquals("Dagger", item.name);
+        assertEquals(300, item.price);
     }
 
     @Test
     void shouldGetRecurveBow()
     {
         // given
-
+        ItemRepository repository = new ItemRepository();
         // when
-
+        Item item = repository.getRecurveBow(null);
         // then
-
+        assertEquals("Recurve Bow", item.name);
+        assertEquals(1000, item.price);
     }
 
     @Test
     void shouldGetVampiricScepter()
     {
         // given
-
+        ItemRepository repository = new ItemRepository();
         // when
-
+        Item item = repository.getVampiricScepter(null);
         // then
-
+        assertEquals("Vampiric Scepter", item.name);
+        assertEquals(900, item.price);
     }
 
     @Test
     void shouldGetBilgewaterCutlass()
     {
         // given
-
+        ItemRepository repository = new ItemRepository();
         // when
-
+        Item item = repository.getBilgewaterCutlass(null, null);
         // then
-
+        assertEquals("Bilgewater Cutlass", item.name);
+        assertEquals(1600, item.price);
     }
-
-
 }
