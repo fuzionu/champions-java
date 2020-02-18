@@ -38,14 +38,12 @@ public class ItemRepository
 
     public Item getLongSword()
     {
-
         return item("Long Sword", 350, "longsword.png", emptyList());
     }
 
     public Item getNeedlesslyLargeRod()
     {
-
-        return item("Nedlessly Large Rod", 1250, "largerod.png", emptyList());
+        return item("Needlessly Large Rod", 1250, "largerod.png", emptyList());
     }
 
     public Item getDagger()
