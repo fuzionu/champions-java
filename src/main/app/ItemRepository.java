@@ -20,12 +20,42 @@ public class ItemRepository
         return item;
     }
 
+    public Item getItem(String itemName)
+    {
+        Set<Item> arrayOfItems = getItems();
+
+        for(Item itemFromSet : arrayOfItems)
+        {
+            if(itemFromSet.name.equalsIgnoreCase(itemName))
+            {
+                return itemFromSet;
+            }
+        }
+        throw new ItemNotFoundException();
+    }
+
     public Set<Item> getItems()
     {
-        Item item = getRabadon(getNeedlesslyLargeRod());
-        Item item2 = getBotRK(getRecurveBow(getDagger()), getBilgewaterCutlass(getVampiricScepter(getLongSword()), getLongSword()));
+        Item rabadon = getRabadon(getNeedlesslyLargeRod());
+        Item botrk = getBotRK(getRecurveBow(getDagger()), getBilgewaterCutlass(getVampiricScepter(getLongSword()),
+                getLongSword()));
+        Item longSword = getLongSword();
+        Item needlesslyLargeRod = getNeedlesslyLargeRod();
+        Item dagger = getDagger();
+        Item recurveBow = getRecurveBow(getDagger());
+        Item vampiricScepter = getVampiricScepter(getLongSword());
+        Item bilgewaterCutlass = getBilgewaterCutlass(getVampiricScepter(getLongSword()),
+                getLongSword());
 
-        return new HashSet<>(asList(item, item2));
+        return new HashSet<>(asList(
+                rabadon,
+                botrk,
+                longSword,
+                needlesslyLargeRod,
+                dagger,
+                recurveBow,
+                vampiricScepter,
+                bilgewaterCutlass));
     }
 
     public Item getRabadon(Item subpart)

@@ -1,16 +1,22 @@
 package app;
 
+import app.console.ItemFormatter;
+
 import java.util.Scanner;
 
 public class TextInterface
 {
     private final ChampionRepository championRepository;
     private final Scanner scanner;
+    private ItemFormatter itemFormatter;
+    private ItemRepository itemRepository;
 
-    TextInterface(ChampionRepository championRepository, Scanner scanner)
+    TextInterface(ChampionRepository championRepository, Scanner scanner, ItemFormatter itemFormatter, ItemRepository itemRepository)
     {
         this.championRepository = championRepository;
         this.scanner = scanner;
+        this.itemFormatter = itemFormatter;
+        this.itemRepository = itemRepository;
     }
 
     public void start()
@@ -19,21 +25,54 @@ public class TextInterface
         {
             String userInput = userInput(scanner);
 
-            if (userInput.equals("exit"))
+            if (userInput.equalsIgnoreCase("champion"))
+            {
+                System.out.print("Champion: ");
+                String champName = scanner.nextLine();
+                showChampion(champName);
+            }
+            else if (userInput.equalsIgnoreCase("item"))
+            {
+                System.out.print("Item: ");
+                String itemName = scanner.nextLine();
+                showItem(itemName);
+            }
+            else if (userInput.equals("exit"))
             {
                 System.out.println("Closing program...");
                 break;
             }
+            else
+            {
+                System.out.println("Invalid command.\n");
+            }
 
-            showChampion(userInput);
         } while (true);
     }
 
     private String userInput(Scanner scanner)
     {
-        System.out.println("Type champion's name or \"exit\" to close the program");
+        System.out.println("Type \"champion\" for champion search\n" +
+                "Type \"item\" for item search\n" +
+                "Type \"exit\" for app close");
         System.out.print(">");
         return scanner.nextLine();
+    }
+
+    private void showItem(String userInput)
+    {
+        ItemRepository itemRepository = new ItemRepository();
+        ItemFormatter itemFormatter = new ItemFormatter();
+        try
+        {
+            Item item = itemRepository.getItem(userInput);
+            System.out.println(itemFormatter.formatItem(item));
+            System.out.println();
+        }
+        catch (ItemNotFoundException e)
+        {
+            System.out.println("Item not found! Try again.\n");
+        }
     }
 
     private void showChampion(String userInput)
@@ -46,7 +85,7 @@ public class TextInterface
         }
         catch (ChampionNotFoundException e)
         {
-            System.out.println("Champion not found! Try again.");
+            System.out.println("Champion not found! Try again.\n");
         }
     }
 

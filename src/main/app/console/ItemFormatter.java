@@ -30,6 +30,9 @@ public class ItemFormatter
         {
             output.append("  - ")
                     .append(subpart.name)
+                    .append(" (")
+                    .append(subpart.price)
+                    .append("g)")
                     .append("\n")
                     .append(subParts(subpart));
         }
