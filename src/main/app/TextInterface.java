@@ -61,13 +61,9 @@ public class TextInterface
 
     private void showItem(String userInput)
     {
-        ItemRepository itemRepository = new ItemRepository();
-        ItemFormatter itemFormatter = new ItemFormatter();
         try
         {
-            Item item = itemRepository.getItem(userInput);
-            System.out.println(itemFormatter.formatItem(item));
-            System.out.println();
+            tryShowItem(userInput);
         }
         catch (ItemNotFoundException e)
         {
@@ -75,18 +71,30 @@ public class TextInterface
         }
     }
 
+    private void tryShowItem(String userInput)
+    {
+        Item item = itemRepository.getItem(userInput);
+        System.out.println(itemFormatter.formatItem(item));
+        System.out.println();
+    }
+
     private void showChampion(String userInput)
     {
         try
         {
-            Champion champion = championRepository.getChampion(userInput);
-            System.out.println(showChampionStats(champion));
-            System.out.println();
+            tryShowChampion(userInput);
         }
         catch (ChampionNotFoundException e)
         {
             System.out.println("Champion not found! Try again.\n");
         }
+    }
+
+    private void tryShowChampion(String userInput)
+    {
+        Champion champion = championRepository.getChampion(userInput);
+        System.out.println(showChampionStats(champion));
+        System.out.println();
     }
 
     private String showChampionStats(Champion champion)
