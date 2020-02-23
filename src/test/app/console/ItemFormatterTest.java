@@ -79,7 +79,13 @@ class ItemFormatterTest
         Item item = item("Przedmiot", 100, asList(
                 item("Przedmiot_1", asList(
                         item("Przedmiot_a"),
-                        item("Przedmiot_b"))),
+                        item("Przedmiot_b", asList(
+                                item("Przedmiot_x"),
+                                item("Przedmiot_y", asList(
+                                        item("Przedmiot_lol"),
+                                        item("Przedmiot_meme")
+                                ))
+                        )))),
                 item("Przedmiot_2")
         ));
 
@@ -93,6 +99,10 @@ class ItemFormatterTest
                 "  - Przedmiot_1 (0g)\n" +
                 "    - Przedmiot_a (0g)\n" +
                 "    - Przedmiot_b (0g)\n" +
+                "      - Przedmiot_x (0g)\n" +
+                "      - Przedmiot_y (0g)\n" +
+                "        - Przedmiot_lol (0g)\n" +
+                "        - Przedmiot_meme (0g)\n" +
                 "  - Przedmiot_2 (0g)\n", result);
     }
 
