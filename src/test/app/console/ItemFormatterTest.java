@@ -3,6 +3,8 @@ package app.console;
 import app.Item;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
@@ -10,21 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ItemFormatterTest
 {
-
     @Test
     void shouldFormatItem()
     {
         // given
         ItemFormatter formatter = new ItemFormatter();
 
-        Item item2 = new Item();
-        item2.name = "Przedmiot_1";
-        item2.subParts = emptyList();
-
-        Item item = new Item();
-        item.name = "Przedmiot";
-        item.price = 100;
-        item.subParts = singletonList(item2);
+        Item item = item("Przedmiot", 100, singletonList(item("Przedmiot_1")));
 
         // when
         String result = formatter.formatItem(item);
@@ -42,26 +36,11 @@ class ItemFormatterTest
         //given
         ItemFormatter formatter = new ItemFormatter();
 
-        Item item1 = new Item();
-        item1.name = "Przedmiot_1";
-        item1.subParts = emptyList();
-
-        Item item2 = new Item();
-        item2.name = "Przedmiot_2";
-        item2.subParts = emptyList();
-
-        Item item3 = new Item();
-        item3.name = "Przedmiot_3";
-        item3.subParts = emptyList();
-
-        Item item4 = new Item();
-        item4.name = "Przedmiot_4";
-        item4.subParts = emptyList();
-
-        Item item = new Item();
-        item.name = "Przedmiot";
-        item.price = 100;
-        item.subParts = asList(item1, item2, item3, item4);
+        Item item = item("Przedmiot", 100, asList(
+                item("Przedmiot_1"),
+                item("Przedmiot_2"),
+                item("Przedmiot_3"),
+                item("Przedmiot_4")));
 
         //when
         String result = formatter.formatItem(item);
@@ -81,10 +60,7 @@ class ItemFormatterTest
     {
         // given
         ItemFormatter formatter = new ItemFormatter();
-        Item item = new Item();
-        item.name = "Przedmiot";
-        item.price = 100;
-        item.subParts = emptyList();
+        Item item = item("Przedmiot", 100, emptyList());
 
         // when
         String result = formatter.formatItem(item);
@@ -100,26 +76,12 @@ class ItemFormatterTest
         //given
         ItemFormatter formatter = new ItemFormatter();
 
-        Item item1 = new Item();
-        item1.name = "Przedmiot_1";
-
-        Item item2 = new Item();
-        item2.name = "Przedmiot_a";
-        item2.subParts = emptyList();
-
-        Item item3 = new Item();
-        item3.name = "Przedmiot_b";
-        item3.subParts = emptyList();
-
-        Item item4 = new Item();
-        item4.name = "Przedmiot_2";
-        item4.subParts = emptyList();
-
-        Item item = new Item();
-        item.name = "Przedmiot";
-        item.price = 100;
-        item.subParts = asList(item1, item4);
-        item1.subParts = asList(item2, item3);
+        Item item = item("Przedmiot", 100, asList(
+                item("Przedmiot_1", asList(
+                        item("Przedmiot_a"),
+                        item("Przedmiot_b"))),
+                item("Przedmiot_2")
+        ));
 
         //when
         String result = formatter.formatItem(item);
@@ -134,5 +96,25 @@ class ItemFormatterTest
                 "  - Przedmiot_2 (0g)\n", result);
     }
 
+    private Item item(String name)
+    {
+        return item(name, emptyList());
+    }
 
+    private Item item(String name, int price, List<Item> items)
+    {
+        Item item = new Item();
+        item.name = name;
+        item.price = price;
+        item.subParts = items;
+        return item;
+    }
+
+    private Item item(String name, List<Item> items)
+    {
+        Item item1 = new Item();
+        item1.name = name;
+        item1.subParts = items;
+        return item1;
+    }
 }
