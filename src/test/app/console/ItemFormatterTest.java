@@ -129,9 +129,8 @@ class ItemFormatterTest
                 "Price: 100g\n" +
                 "Subparts:\n" +
                 "  - Przedmiot_1 (0g)\n" +
-                "Subparts:\n" +
-                "  - Przedmiot_a (0g)\n" +
-                "  - Przedmiot_b (0g)\n" +
+                "    - Przedmiot_a (0g)\n" +
+                "    - Przedmiot_b (0g)\n" +
                 "  - Przedmiot_2 (0g)\n", result);
     }
 

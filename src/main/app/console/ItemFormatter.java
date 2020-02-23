@@ -8,8 +8,14 @@ public class ItemFormatter
 {
     public String formatItem(Item item)
     {
+        if (!item.subParts.isEmpty())
+        {
+            return "Name: " + item.name + "\n" +
+                    "Price: " + item.price + "g\n" +
+                    "Subparts:\n" + subParts(item);
+        }
         return "Name: " + item.name + "\n" +
-                "Price: " + item.price + "g\n" + subParts(item);
+                "Price: " + item.price + "g\n";
     }
 
     private String subParts(Item item)
@@ -24,7 +30,6 @@ public class ItemFormatter
     private String subParts(List<Item> subParts)
     {
         StringBuilder output = new StringBuilder();
-        output.append("Subparts:\n");
 
         for (Item subpart : subParts)
         {
