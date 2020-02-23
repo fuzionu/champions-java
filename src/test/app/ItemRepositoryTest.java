@@ -16,7 +16,7 @@ class ItemRepositoryTest
         // when
         Set<Item> items = repository.getItems();
         // then
-        assertEquals(2, items.size());
+        assertEquals(8, items.size());
     }
 
     @Test

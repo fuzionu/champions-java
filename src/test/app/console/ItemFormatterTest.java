@@ -33,7 +33,7 @@ class ItemFormatterTest
         assertEquals("Name: Przedmiot\n" +
                 "Price: 100g\n" +
                 "Subparts:\n" +
-                "  - Przedmiot_1\n", result);
+                "  - Przedmiot_1 (0g)\n", result);
     }
 
     @Test
@@ -70,10 +70,10 @@ class ItemFormatterTest
         assertEquals("Name: Przedmiot\n" +
                 "Price: 100g\n" +
                 "Subparts:\n" +
-                "  - Przedmiot_1\n" +
-                "  - Przedmiot_2\n" +
-                "  - Przedmiot_3\n" +
-                "  - Przedmiot_4\n", result);
+                "  - Przedmiot_1 (0g)\n" +
+                "  - Przedmiot_2 (0g)\n" +
+                "  - Przedmiot_3 (0g)\n" +
+                "  - Przedmiot_4 (0g)\n", result);
     }
 
     @Test
@@ -128,10 +128,11 @@ class ItemFormatterTest
         assertEquals("Name: Przedmiot\n" +
                 "Price: 100g\n" +
                 "Subparts:\n" +
-                "  - Przedmiot_1\n" +
-                "    - Przedmiot_a\n" +
-                "    - Przedmiot_b\n" +
-                "  - Przedmiot_2\n", result);
+                "  - Przedmiot_1 (0g)\n" +
+                "Subparts:\n" +
+                "  - Przedmiot_a (0g)\n" +
+                "  - Przedmiot_b (0g)\n" +
+                "  - Przedmiot_2 (0g)\n", result);
     }
 
 
