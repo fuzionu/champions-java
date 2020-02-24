@@ -1,11 +1,15 @@
 package app.console;
 
 import app.Item;
+import app.DoubleSpaceMaker;
 
 import java.util.List;
 
 public class ItemFormatter
 {
+    DoubleSpaceMaker doubleSpaceMaker = new DoubleSpaceMaker();
+    int x = 0;
+
     public String formatItem(Item item)
     {
         if (!item.subParts.isEmpty())
@@ -33,14 +37,22 @@ public class ItemFormatter
 
         for (Item subpart : subParts)
         {
-            output.append("  - ")
-                    .append(subpart.name)
-                    .append(" (")
-                    .append(subpart.price)
-                    .append("g)")
-                    .append("\n")
-                    .append(subParts(subpart));
+            itemStringAppender(output, subpart);
         }
         return output.toString();
+    }
+
+    private void itemStringAppender(StringBuilder output, Item subpart)
+    {
+        x += 1;
+        output.append(doubleSpaceMaker.makeDoubleSpace(x));
+        output.append("- ")
+                .append(subpart.name)
+                .append(" (")
+                .append(subpart.price)
+                .append("g)")
+                .append("\n")
+                .append(subParts(subpart));
+        x -= 1;
     }
 }
