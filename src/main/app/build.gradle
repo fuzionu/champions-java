@@ -1,0 +1,23 @@
+package app
+
+apply plugin: 'java'
+
+repositories
+        {
+            jcenter()
+            mavenCentral()
+        }
+
+dependencies
+        {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+            testCompile 'junit:junit:4.12'
+        }
+
+test
+        {
+            useJUnitPlatform()
+        }
+
+mainClassName = 'Main.java'
