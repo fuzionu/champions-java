@@ -2,16 +2,17 @@ package app;
 
 public class DoubleSpaceMaker
 {
-    public String makeDoubleSpace(int doubleSpaceMultiplier)
+    public String makeDoubleSpace(int indents)
     {
-        if (doubleSpaceMultiplier < 0)
+        if (indents < 0)
         {
             throw new IllegalArgumentException("Negative argument");
         }
 
         StringBuilder output = new StringBuilder();
-        doubleSpaceMultiplier = doubleSpaceMultiplier * 2;
-        for (int y = 1; y <= doubleSpaceMultiplier; y++)
+        indents += 2;
+
+        for (int y = 1; y <= indents; y++)
         {
             output.append(" ");
         }

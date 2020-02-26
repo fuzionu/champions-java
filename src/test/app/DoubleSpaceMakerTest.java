@@ -11,10 +11,10 @@ class DoubleSpaceMakerTest
     {
         // given
         DoubleSpaceMaker spaceMaker = new DoubleSpaceMaker();
-        int doubleSpaceMultiplier = 1;
+        int indents = 0;
 
         // when
-        String result = spaceMaker.makeDoubleSpace(doubleSpaceMultiplier);
+        String result = spaceMaker.makeDoubleSpace(indents);
 
         // then
         assertEquals("  ", result);
@@ -25,13 +25,13 @@ class DoubleSpaceMakerTest
     {
         // given
         DoubleSpaceMaker spaceMaker = new DoubleSpaceMaker();
-        int doubleSpaceMultiplier = 0;
+        int indents = 0;
 
         // when
-        String result = spaceMaker.makeDoubleSpace(doubleSpaceMultiplier);
+        String result = spaceMaker.makeDoubleSpace(indents);
 
         // then
-        assertEquals("", result);
+        assertEquals("  ", result);
     }
 
     @Test
@@ -39,10 +39,10 @@ class DoubleSpaceMakerTest
     {
         // given
         DoubleSpaceMaker spaceMaker = new DoubleSpaceMaker();
-        int doubleSpaceMultiplier = -2;
+        int indents = -2;
 
         // then
-        assertThrows(IllegalArgumentException.class, ()-> spaceMaker.makeDoubleSpace(doubleSpaceMultiplier));
+        assertThrows(IllegalArgumentException.class, ()-> spaceMaker.makeDoubleSpace(indents));
 
     }
 }

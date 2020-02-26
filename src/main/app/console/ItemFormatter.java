@@ -8,7 +8,7 @@ import java.util.List;
 public class ItemFormatter
 {
     DoubleSpaceMaker doubleSpaceMaker = new DoubleSpaceMaker();
-    int x = 0;
+
 
     public String formatItem(Item item)
     {
@@ -16,43 +16,43 @@ public class ItemFormatter
         {
             return "Name: " + item.name + "\n" +
                     "Price: " + item.price + "g\n" +
-                    "Subparts:\n" + subParts(item);
+                    "Subparts:\n" + subParts(item, 0);
         }
         return "Name: " + item.name + "\n" +
                 "Price: " + item.price + "g\n";
     }
 
-    private String subParts(Item item)
+
+    private String subParts(Item item, int indents)
     {
         if (item.subParts.isEmpty())
         {
             return "";
         }
-        return subParts(item.subParts);
+        return subParts(item.subParts, indents);
     }
 
-    private String subParts(List<Item> subParts)
+    private String subParts(List<Item> subParts, int indents)
     {
         StringBuilder output = new StringBuilder();
 
         for (Item subpart : subParts)
         {
-            itemStringAppender(output, subpart);
+            itemStringAppender(output, subpart, indents);
         }
+
         return output.toString();
     }
 
-    private void itemStringAppender(StringBuilder output, Item subpart)
+    private void itemStringAppender(StringBuilder output, Item subpart, int indents)
     {
-        x += 1;
-        output.append(doubleSpaceMaker.makeDoubleSpace(x));
+        output.append(doubleSpaceMaker.makeDoubleSpace(indents));
         output.append("- ")
                 .append(subpart.name)
                 .append(" (")
                 .append(subpart.price)
                 .append("g)")
                 .append("\n")
-                .append(subParts(subpart));
-        x -= 1;
+                .append(subParts(subpart, indents + 2));
     }
 }
